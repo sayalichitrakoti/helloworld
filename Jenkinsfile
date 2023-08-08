@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Modify the 'url' parameter to your repository URL
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/sayalichitrakoti/helloworld.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/sayalichitrakoti/helloworld.git']]])
             }
         }
 
