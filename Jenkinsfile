@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Modify the 'url' parameter to your repository URL
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/sayalichitrakoti/helloworld.git']]])
             }
         }
@@ -15,6 +14,13 @@ pipeline {
             }
         }
 
-        // Add more stages for deployment, testing, etc. as needed
+        stage('Deploy') {
+            steps {
+                // Assuming your JAR file is named "your_project_name.jar"
+                bat 'java -jar target/HelloWorld-0.0.1-SNAPSHOT.jar'
+            }
+        }
+        
+        // Add more stages for additional testing, deployment, etc. as needed
     }
 }
